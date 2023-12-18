@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: date_table
+    database: macrodev
+    schema: raw
+    tables:
+      - name: week_n_weekend
+      - name: nth_day
