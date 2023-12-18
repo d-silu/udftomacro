@@ -1,19 +1,20 @@
 -- {# get current date #}
 
-{% macro get_current_timestamp() %}
+{%- macro get_current_timestamp() -%}
     TO_DATE({{ dbt.current_timestamp() }})
-{% endmacro %}
+{%- endmacro -%}
 
 
 -- {# Get week day from a date #}
 
-{% macro find_week_day(user_date) %}
+{%- macro find_week_day(user_date) -%}
+    -- {# Non iso format#}
     case dayofweek({{ user_date }})
         when 6 then previous_day({{ user_date }}, 'fr')
         when 0 then next_day({{ user_date }}, 'mo')
         else {{ user_date }}
     end
-{% endmacro %}
+{%- endmacro -%}
 
 
 -- {# Get Nth Week day #}
