@@ -1,8 +1,6 @@
-with get_week_day as (
-    select id, given_date from {{ source('date_table', 'week_n_weekend') }}
-)
-select
-    id,
-    given_date,
-    {{ find_week_day('given_date') }} as result_date
-from get_week_day
+
+
+{% set date_param=var("date") %}
+{% set date_paths = "'"~ date_param~"'" %}
+select 
+    {{ find_week_day(date_paths) }} as result_week_day

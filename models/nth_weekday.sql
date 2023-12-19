@@ -1,12 +1,8 @@
 
-with nth_week_day as (
-    select * from {{ source('date_table', 'nth_day') }}
-)
+{% set nthweek = var("week_num") %}
+{% set week_day = "'"~ var("weekday") ~"'" %}
+{% set year = var('year') %}
+{% set month = var('month') %}
+
 select 
-    id,
-    test_week,
-    test_weekday,
-    test_year,
-    test_month,
-    {{ find_nth_week_day('test_week','test_weekday','test_year','test_month') }} as result_date
-from nth_week_day
+    {{ find_nth_week_day(nthweek, week_day, year, month) }} as result 
