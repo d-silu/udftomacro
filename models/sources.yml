@@ -7,3 +7,4 @@ sources:
     tables:
       - name: week_n_weekend
       - name: nth_day
+      - name: find_easter
