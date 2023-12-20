@@ -1,5 +1,5 @@
 
-{% set nthweek = var("week_num") %}
+{% set nthweek = var("weeknum") %}
 {% set week_day = "'"~ var("weekday") ~"'" %}
 {% set year = var('year') %}
 {% set month = var('month') %}

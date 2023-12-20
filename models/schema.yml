@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: current_date
+    description: returns current date.
+  - name: week_day
+    description: Converts any weekend to a week day. 
+      If the user gives any date that falls on saturday, the macro converts it to friday and sunday to monday.
+  - name: nth_weekday
+    description: finds date for a given day, week number, month and year.
