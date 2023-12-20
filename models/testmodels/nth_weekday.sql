@@ -5,4 +5,4 @@
 {% set month = var('month') %}
 
 select 
-    {{ find_nth_week_day(nthweek, week_day, year, month) }} as result 
+    {{ find_nth_weekday_new(nthweek, week_day, year, month) }} as result 
