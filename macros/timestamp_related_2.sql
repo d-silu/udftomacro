@@ -1,4 +1,4 @@
-{%- macro find_easter_sunday_long(year) -%}
+{%- macro find_easter_sunday(year) -%}
 
     date(
         concat(
