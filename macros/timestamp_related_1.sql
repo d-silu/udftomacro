@@ -1,6 +1,6 @@
 -- {# get current date #}
 
-{%- macro get_current_timestamp() -%}
+{%- macro get_current_date() -%}
     TO_DATE({{ dbt.current_timestamp() }})
 {%- endmacro -%}
 

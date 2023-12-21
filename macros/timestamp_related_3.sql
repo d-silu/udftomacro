@@ -1,4 +1,4 @@
-{% macro find_nth_weekday_new(nth_week, week_day, year, month) %}
+{%- macro find_nth_weekday_new(nth_week, week_day, year, month) -%}
 
     dateadd(
         day,
@@ -30,4 +30,4 @@
         end )* 7, 
         to_timestamp((TO_VARIANT({{ year }}) || RIGHT('0' || TO_VARIANT({{ month }}),2) || '01'), 'YYYYMMDD'))
 
-{% endmacro %}
+{%- endmacro -%}
