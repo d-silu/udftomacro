@@ -62,7 +62,26 @@
 
 -- {% Easter Sunday %}
 
-{% macro find_easter_sunday_test(year) -%}
+{% macro find_easter_sunday_test1(year) -%}
+    
+    {%- set c = (year/100) | int -%}
+    {%- set n = (year - (19 * (year / 19) | int )) | int -%}
+    {%- set k = ((c - 17)/25) | int %}
+    {%- set i1 = (c - (c /4) | int - ((c - k) / 3) | int + 19 * n + 15) -%}
+    {%- set i2 = (i1 - (30 * (i1 / 30) | int))  %}
+    {%- set i3 = (i2 - (i2 / 28) | int * (1 - (i2 / 28) | int * (29 / (i2 + 1)) | int * ((21 - n) / 11) | int)) -%}
+    {%- set j = (year + (year / 4) | int + i3 + 2 - c + (c / 4) | int) -%}
+    {%- set j = (j - (7 * (j / 7) | int)) | int -%}
+    {%- set l = i3 - j -%}
+    {%- set m = 3 + ((l + 40) / 44) | int -%}
+    {%- set d = l + 28 - (31 * (m / 4) | int) | int -%}
+
+    date(concat({{ year }} || '-' || LPAD(TO_VARCHAR({{ m }}),2,0) || '-' || LPAD(TO_VARCHAR({{ d }}),2,0))):: timestamp
+
+{%- endmacro %}
+
+
+{% macro find_easter_sunday_test2(year) -%}
     
     {%- set c = (year//100) -%}
     {%- set n = (year - (19 * (year // 19))) -%}

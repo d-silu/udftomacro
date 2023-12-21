@@ -1,4 +1,6 @@
-{% set year = var("year") %}
+-- {# {% set year = var("year") %} #}
 
 select
-    {{ find_easter_sunday(year) }} as easter
+    given_year,
+    {{ find_easter_sunday_test1('given_year') }} as easter
+from {{ source('date_table', 'find_easter') }}
